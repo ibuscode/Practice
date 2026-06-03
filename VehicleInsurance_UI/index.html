@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AutoInsure | Vehicle Insurance</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+    }
+    
+    .hero-card {
+      background: white;
+      border-radius: 1.5rem;
+      padding: 2rem;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+      margin: 2rem auto;
+    }
+    
+    .login-option {
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+    }
+    
+    .login-option:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15) !important;
+    }
+    
+    .user-card { border-left: 5px solid #0d6efd; }
+    .officer-card { border-left: 5px solid #198754; }
+    
+    .policy-card {
+      transition: all 0.3s ease;
+      border-radius: 1rem;
+      overflow: hidden;
+    }
+    
+    .policy-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    }
+    
+    .policy-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .benefit-item {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    
+    .testimonial-card {
+      background: #f8f9fa;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      transition: all 0.3s;
+    }
+    
+    .testimonial-card:hover {
+      background: #fff;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+    
+    .rating-stars {
+      color: #ffc107;
+      margin-bottom: 0.5rem;
+    }
+    
+    .footer {
+      background: #1a1a2e;
+      color: #eee;
+      border-radius: 1rem;
+      padding: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .feature-badge {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 0.3rem 1rem;
+      border-radius: 2rem;
+      font-size: 0.8rem;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+    
+    .price-tag {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #0d6efd;
+    }
+    
+    .btn-policy {
+      border-radius: 2rem;
+      padding: 0.5rem 1.5rem;
+      font-weight: 500;
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .animate-on-scroll {
+      animation: fadeInUp 0.6s ease-out;
+    }
+    
+    @media (max-width: 768px) {
+      .hero-card {
+        padding: 1rem;
+        margin: 1rem;
+      }
+      .price-tag {
+        font-size: 1.3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="hero-card">
+    <!-- Header Section -->
+    <div class="text-center mb-4">
+      <i class="fas fa-car-side fa-3x text-primary"></i>
+      <h1 class="display-5 fw-bold mt-2">AutoInsure</h1>
+      <p class="text-muted">India's Most Trusted Vehicle Insurance Provider</p>
+      <div class="d-flex justify-content-center gap-3 mt-2 flex-wrap">
+        <span class="badge bg-primary rounded-pill px-3 py-2"><i class="fas fa-check-circle"></i> 24/7 Claim Support</span>
+        <span class="badge bg-success rounded-pill px-3 py-2"><i class="fas fa-shield-alt"></i> 100% Paperless</span>
+        <span class="badge bg-warning rounded-pill px-3 py-2"><i class="fas fa-clock"></i> 5 Min Policy Issuance</span>
+      </div>
+    </div>
+
+    <!-- Login Section -->
+    <div class="row g-4 mt-3">
+      <!-- User Section -->
+      <div class="col-md-6">
+        <div class="card user-card border-0 shadow-sm h-100 login-option">
+          <div class="card-body text-center p-4">
+            <i class="fas fa-user-circle fa-4x text-primary mb-3"></i>
+            <h3 class="fw-bold">Customer Portal</h3>
+            <p class="text-muted">Buy insurance, submit claims, track policies online</p>
+            <div class="d-grid gap-2 mt-4">
+              <a href="user-login.html" class="btn btn-primary btn-lg"><i class="fas fa-sign-in-alt me-2"></i>Login as Customer</a>
+              <a href="user-register.html" class="btn btn-outline-primary"><i class="fas fa-user-plus me-2"></i>New Customer? Register here</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Officer Section -->
+      <div class="col-md-6">
+        <div class="card officer-card border-0 shadow-sm h-100 login-option">
+          <div class="card-body text-center p-4">
+            <i class="fas fa-user-tie fa-4x text-success mb-3"></i>
+            <h3 class="fw-bold">Officer Portal</h3>
+            <p class="text-muted">Manage proposals, approve policies, generate quotes</p>
+            <div class="d-grid gap-2 mt-4">
+              <a href="officer-login.html" class="btn btn-success btn-lg"><i class="fas fa-shield-alt me-2"></i>Login as Officer</a>
+              <a href="officer-register.html" class="btn btn-outline-success"><i class="fas fa-user-shield me-2"></i>New Officer? Register here</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Statistics Section -->
+    <div class="row mt-5 text-center">
+      <div class="col-md-3 col-6 mb-3">
+        <div>
+          <h2 class="text-primary fw-bold">15K+</h2>
+          <small class="text-muted">Active Policies</small>
+        </div>
+      </div>
+      <div class="col-md-3 col-6 mb-3">
+        <div>
+          <h2 class="text-primary fw-bold">2.8K+</h2>
+          <small class="text-muted">Claims Served</small>
+        </div>
+      </div>
+      <div class="col-md-3 col-6 mb-3">
+        <div>
+          <h2 class="text-primary fw-bold">98%</h2>
+          <small class="text-muted">Claim Settlement</small>
+        </div>
+      </div>
+      <div class="col-md-3 col-6 mb-3">
+        <div>
+          <h2 class="text-primary fw-bold">4.9★</h2>
+          <small class="text-muted">Customer Rating</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- Available Policies Title -->
+    <div class="mt-5 pt-3">
+      <div class="text-center mb-4">
+        <span class="feature-badge"><i class="fas fa-list-alt me-2"></i>Our Insurance Products</span>
+        <h2 class="fw-bold mt-2">Choose the Right Policy for Your Vehicle</h2>
+        <p class="text-muted">Comprehensive coverage options tailored to your needs</p>
+      </div>
+    </div>
+
+    <!-- Policy Cards Section - Only 3 Policies -->
+    <div class="row g-4">
+      <!-- Policy 1: Car Insurance -->
+      <div class="col-md-4">
+        <div class="card policy-card border-0 shadow-sm h-100">
+          <div class="card-body p-4">
+            <div class="policy-icon text-primary">
+              <i class="fas fa-car"></i>
+            </div>
+            <h4 class="fw-bold">Car Insurance</h4>
+            <p class="text-muted small">Comprehensive coverage for your four-wheeler</p>
+            <div class="price-tag mb-3">₹3,499<span class="small text-muted">/year*</span></div>
+            <div class="benefit-item">
+              <i class="fas fa-check-circle text-success me-2"></i> Zero Depreciation Cover
+            </div>
+            <div class="benefit-item">
+              <i class="fas fa-check-circle text-success me-2"></i> Engine Protection
+            </div>
+            <div class="benefit-item">
+              <i class="fas fa-check-circle text-success me-2"></i> Roadside Assistance
+            </div>
+            <div class="benefit-item">
+              <i class="fas fa-check-circle text-success me-2"></i> No Claim Bonus up to 50%
+            </div>
+            <button class="btn btn-outline-primary btn-policy w-100 mt-3" onclick="window.location.href='user-register.html'">Get Quote →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Policy 2: Bike Insurance -->
+      <div class="col-md-4">
+        <div class="card policy-card border-0 shadow-sm h-100">
+          <div class="card-body p-4">
+            <div class="policy-icon text-success">
+              <i class="fas fa-motorcycle"></i>
+            </div>
+            <h4 class="fw-bold">Bike Insurance</h4>
+            <p class="text-muted small">Protect your two-wheeler on every ride</p>
+            <div class="price-tag mb-3">₹1,299<span class="small text-muted">/year*</span></div>
+            <div class="benefit-item">
+              <i class="fas fa-check-circle text-success me-2"></i> Personal Accident Cover
+            </div>
+            <div class="benefit-item">
+              <i class="fas fa-check-circle text-success me-2"></i> Pillion Rider Cover
+            </div>
+            <div class="benefit-item">
+              <i class="fas fa-check-circle text-success me-2"></i> Accessories Protection
+            </div>
+            <div class="benefit-item">
+              <i class="fas fa-check-circle text-success me-2"></i> Cashless Garages
+            </div>
+            <button class="btn btn-outline-success btn-policy w-100 mt-3" onclick="window.location.href='user-register.html'">Get Quote →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Policy 3: Camper Van Insurance -->
+      <div class="col-md-4">
+        <div class="card policy-card border-0 shadow-sm h-100">
+          <div class="card-body p-4">
+            <div class="policy-icon text-info">
+              <i class="fas fa-caravan"></i>
+            </div>
+            <h4 class="fw-bold">Camper Van Insurance</h4>
+            <p class="text-muted small">Special coverage for recreational vehicles</p>
+            <div class="price-tag mb-3">₹8,499<span class="small text-muted">/year*</span></div>
+            <div class="benefit-item">
+              <i class="fas fa-check-circle text-success me-2"></i> Living Equipment Cover
+            </div>
+            <div class="benefit-item">
+              <i class="fas fa-check-circle text-success me-2"></i> Emergency Stay Assistance
+            </div>
+            <div class="benefit-item">
+              <i class="fas fa-check-circle text-success me-2"></i> Towing Protection
+            </div>
+            <div class="benefit-item">
+              <i class="fas fa-check-circle text-success me-2"></i> Personal Belongings
+            </div>
+            <button class="btn btn-outline-info btn-policy w-100 mt-3" onclick="window.location.href='user-register.html'">Get Quote →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Why Choose Us Section -->
+    <div class="mt-5 pt-3">
+      <div class="text-center mb-4">
+        <span class="feature-badge"><i class="fas fa-star me-2"></i>Why AutoInsure?</span>
+        <h2 class="fw-bold mt-2">Why Thousands Trust Us</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-3 col-6 text-center">
+          <i class="fas fa-bolt fa-3x text-primary mb-2"></i>
+          <h6>Instant Policy</h6>
+          <small class="text-muted">Get policy in 5 minutes</small>
+        </div>
+        <div class="col-md-3 col-6 text-center">
+          <i class="fas fa-headset fa-3x text-primary mb-2"></i>
+          <h6>24/7 Support</h6>
+          <small class="text-muted">Round the clock assistance</small>
+        </div>
+        <div class="col-md-3 col-6 text-center">
+          <i class="fas fa-hand-holding-usd fa-3x text-primary mb-2"></i>
+          <h6>Best Price</h6>
+          <small class="text-muted">Price match guarantee</small>
+        </div>
+        <div class="col-md-3 col-6 text-center">
+          <i class="fas fa-file-invoice-dollar fa-3x text-primary mb-2"></i>
+          <h6>100% Digital</h6>
+          <small class="text-muted">Paperless process</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- Testimonials Section -->
+    <div class="mt-5 pt-3">
+      <div class="text-center mb-4">
+        <span class="feature-badge"><i class="fas fa-comments me-2"></i>Customer Stories</span>
+        <h2 class="fw-bold mt-2">What Our Customers Say</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="testimonial-card">
+            <div class="rating-stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="small">"Quick claim settlement! Got my bike repaired within 48 hours. Highly recommended."</p>
+            <h6 class="mb-0">- Ramesh Kumar</h6>
+            <small class="text-muted">Bike Policy Holder</small>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="testimonial-card">
+            <div class="rating-stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="small">"Best premium rates and excellent customer support. The renewal process is seamless."</p>
+            <h6 class="mb-0">- Priya Sharma</h6>
+            <small class="text-muted">Car Policy Holder</small>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="testimonial-card">
+            <div class="rating-stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+            </div>
+            <p class="small">"Amazing coverage for my camper van. The emergency assistance saved me during a road trip!"</p>
+            <h6 class="mb-0">- Vikram Singh</h6>
+            <small class="text-muted">Camper Van Owner</small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer mt-5">
+      <div class="row">
+        <div class="col-md-4 mb-3">
+          <h5><i class="fas fa-car-side me-2"></i>AutoInsure</h5>
+          <p class="small">India's most trusted vehicle insurance provider. IRDAI approved.</p>
+          <div>
+            <i class="fab fa-facebook me-2"></i>
+            <i class="fab fa-twitter me-2"></i>
+            <i class="fab fa-linkedin me-2"></i>
+            <i class="fab fa-instagram"></i>
+          </div>
+        </div>
+        <div class="col-md-2 mb-3">
+          <h6>Products</h6>
+          <ul class="list-unstyled small">
+            <li>Car Insurance</li>
+            <li>Bike Insurance</li>
+            <li>Camper Van Insurance</li>
+          </ul>
+        </div>
+        <div class="col-md-3 mb-3">
+          <h6>Support</h6>
+          <ul class="list-unstyled small">
+            <li><i class="fas fa-phone me-1"></i> 1800-123-4567</li>
+            <li><i class="fas fa-envelope me-1"></i> support@autoinsure.com</li>
+            <li><i class="fas fa-clock me-1"></i> 24/7 Customer Support</li>
+          </ul>
+        </div>
+        <div class="col-md-3 mb-3">
+          <h6>Download App</h6>
+          <button class="btn btn-dark btn-sm mb-2 w-100"><i class="fab fa-google-play"></i> Google Play</button>
+          <button class="btn btn-dark btn-sm w-100"><i class="fab fa-apple"></i> App Store</button>
+        </div>
+      </div>
+      <hr class="bg-secondary">
+      <div class="text-center small">
+        © 2024 AutoInsure. All rights reserved. | Insurance is the subject matter of solicitation.
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Add scroll animation
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate-on-scroll');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+  
+  document.querySelectorAll('.policy-card, .testimonial-card').forEach(el => {
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>

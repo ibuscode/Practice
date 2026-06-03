@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Officer Dashboard | AutoInsure</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .stats-card {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border-radius: 1rem;
+      padding: 1.5rem;
+    }
+    .stats-card:nth-child(2) { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+    .stats-card:nth-child(3) { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+    .stats-card:nth-child(4) { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-dark bg-dark px-4 shadow-sm">
+  <span class="navbar-brand fw-bold">
+    <i class="fas fa-user-tie me-2"></i>Insurance Officer Portal
+  </span>
+  <div class="d-flex gap-2">
+    <span class="text-light me-3"><i class="fas fa-bell"></i> <span class="badge bg-danger">3</span></span>
+    <a href="../login.html" class="btn btn-outline-light btn-sm" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+  </div>
+</nav>
+
+<div class="container mt-4">
+  <!-- Welcome -->
+  <div class="alert alert-info">
+    <i class="fas fa-check-circle"></i> Welcome back, <strong id="officerName">Officer</strong>! Today is <span id="currentDate"></span>
+  </div>
+
+  <!-- Stats Cards -->
+  <div class="row g-4 mb-4">
+    <div class="col-md-3">
+      <div class="stats-card">
+        <h6><i class="fas fa-file-alt"></i> Pending Proposals</h6>
+        <h2 class="fw-bold">8</h2>
+        <small>Awaiting review</small>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="stats-card">
+        <h6><i class="fas fa-chart-line"></i> Active Policies</h6>
+        <h2 class="fw-bold">156</h2>
+        <small>+12 this week</small>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="stats-card">
+        <h6><i class="fas fa-rupee-sign"></i> Total Premium</h6>
+        <h2 class="fw-bold">₹8.2L</h2>
+        <small>This month</small>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="stats-card">
+        <h6><i class="fas fa-users"></i> Customers</h6>
+        <h2 class="fw-bold">342</h2>
+        <small>Registered users</small>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quick Actions -->
+  <div class="row mb-4">
+    <div class="col-12">
+      <div class="card shadow-sm border-0">
+        <div class="card-body">
+          <h5 class="fw-bold"><i class="fas fa-bolt text-warning"></i> Quick Actions</h5>
+          <div class="d-flex flex-wrap gap-2 mt-3">
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addPolicyModal">
+              <i class="fas fa-plus"></i> Add New Policy
+            </button>
+            <button class="btn btn-outline-primary" onclick="location.href='proposals.html'">
+              <i class="fas fa-eye"></i> View All Proposals
+            </button>
+            <button class="btn btn-outline-success">
+              <i class="fas fa-download"></i> Generate Reports
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pending Proposals Table -->
+  <div class="card shadow-sm border-0">
+    <div class="card-header bg-white fw-bold">
+      <i class="fas fa-clock text-warning"></i> Pending Proposals for Review
+    </div>
+    <div class="card-body p-0">
+      <table class="table table-hover mb-0">
+        <thead class="table-light">
+          <tr>
+            <th>Proposal ID</th>
+            <th>Customer Name</th>
+            <th>Vehicle Type</th>
+            <th>Submitted On</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>#PR-101</td>
+            <td>Ramesh Kumar</td>
+            <td>Truck</td>
+            <td>2026-05-25</td>
+            <td><span class="badge bg-warning">Pending Review</span></td>
+            <td><a href="proposal-detail.html?id=101" class="btn btn-sm btn-primary">Review</a></td>
+          </tr>
+          <tr>
+            <td>#PR-102</td>
+            <td>Priya Sharma</td>
+            <td>Motorcycle</td>
+            <td>2026-05-24</td>
+            <td><span class="badge bg-info">Docs Required</span></td>
+            <td><a href="proposal-detail.html?id=102" class="btn btn-sm btn-primary">Review</a></td>
+          </tr>
+          <tr>
+            <td>#PR-103</td>
+            <td>Aditya Mehta</td>
+            <td>Camper Van</td>
+            <td>2026-05-23</td>
+            <td><span class="badge bg-warning">Pending Review</span></td>
+            <td><a href="proposal-detail.html?id=103" class="btn btn-sm btn-primary">Review</a></td>
+          </tr>
+          <tr>
+            <td>#PR-104</td>
+            <td>Sunita Verma</td>
+            <td>Truck</td>
+            <td>2026-05-22</td>
+            <td><span class="badge bg-warning">Pending Review</span></td>
+            <td><a href="proposal-detail.html?id=104" class="btn btn-sm btn-primary">Review</a></td>
+          </tr>
+          <tr>
+            <td>#PR-105</td>
+            <td>Rahul Nair</td>
+            <td>Motorcycle</td>
+            <td>2026-05-21</td>
+            <td><span class="badge bg-secondary">Quote Generated</span></td>
+            <td><a href="proposal-detail.html?id=105" class="btn btn-sm btn-outline-secondary">View</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Recently Approved -->
+  <div class="card shadow-sm border-0 mt-4">
+    <div class="card-header bg-white fw-bold">
+      <i class="fas fa-check-circle text-success"></i> Recently Approved Policies
+    </div>
+    <div class="card-body">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          Policy #POL-2024-001 - Car Insurance (Anil Kapoor)
+          <span class="badge bg-success">Active</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          Policy #POL-2024-002 - Truck Fleet (Transport Co.)
+          <span class="badge bg-success">Active</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Add New Policy Modal -->
+<div class="modal fade" id="addPolicyModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title"><i class="fas fa-plus"></i> Add New Policy</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form id="addPolicyForm">
+          <div class="mb-3">
+            <label>Policy Name *</label>
+            <input type="text" class="form-control" id="policyName" placeholder="e.g., Truck Guardian Plus" required>
+          </div>
+          <div class="mb-3">
+            <label>Vehicle Category *</label>
+            <select class="form-select" id="vehicleCategory" required>
+              <option>Truck</option>
+              <option>Motorcycle</option>
+              <option>Camper Van</option>
+              <option>Car</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label>Base Premium (₹) *</label>
+            <input type="number" class="form-control" id="basePremium" placeholder="5000" required>
+          </div>
+          <div class="mb-3">
+            <label>Description</label>
+            <textarea class="form-control" rows="2" placeholder="Policy features, coverage details..."></textarea>
+          </div>
+          <div class="mb-3">
+            <label>Available Add-ons</label>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="Zero Depreciation"> Zero Depreciation
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="Roadside Assistance"> Roadside Assistance
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="Engine Cover"> Engine Cover
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Create Policy</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Set current date
+  document.getElementById('currentDate').innerText = new Date().toLocaleDateString('en-IN');
+  
+  // Get officer name from storage
+  const user = localStorage.getItem("currentUser");
+  if (user) {
+    const userData = JSON.parse(user);
+    if (userData.name) document.getElementById('officerName').innerText = userData.name;
+  }
+  
+  // Logout
+  document.getElementById('logoutBtn')?.addEventListener('click', (e) => {
+    localStorage.removeItem("isLoggedIn");
+    localStorage.removeItem("currentUser");
+  });
+  
+  // Add policy form
+  document.getElementById('addPolicyForm')?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    alert('✅ New policy added successfully! Customers can now see this policy.');
+    bootstrap.Modal.getInstance(document.getElementById('addPolicyModal')).hide();
+    document.getElementById('addPolicyForm').reset();
+  });
+</script>
+</body>
+</html>

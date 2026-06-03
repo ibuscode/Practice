@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Officer Registration | AutoInsure</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    body {
+      background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+      min-height: 100vh;
+    }
+    .register-card {
+      background: white;
+      border-radius: 1.5rem;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="row justify-content-center align-items-center min-vh-100 py-4">
+    <div class="col-md-5">
+      <div class="register-card p-4">
+        <div class="text-center mb-4">
+          <i class="fas fa-user-shield fa-3x text-success"></i>
+          <h3 class="fw-bold mt-2">Officer Registration</h3>
+          <p class="text-muted">Join the insurance team</p>
+        </div>
+        
+        <form id="officerRegisterForm">
+          <div class="mb-3">
+            <label class="form-label">Full Name *</label>
+            <input type="text" id="officerName" class="form-control" placeholder="Enter your name" required>
+          </div>
+          
+          <div class="mb-3">
+            <label class="form-label">Email Address *</label>
+            <input type="email" id="officerEmail" class="form-control" placeholder="officer@company.com" required>
+          </div>
+          
+          <div class="mb-3">
+            <label class="form-label">Employee ID *</label>
+            <input type="text" id="employeeId" class="form-control" placeholder="EMP123456" required>
+          </div>
+          
+          <div class="mb-3">
+            <label class="form-label">Department</label>
+            <select id="department" class="form-select">
+              <option>Underwriting</option>
+              <option>Claims Processing</option>
+              <option>Policy Management</option>
+              <option>Customer Support</option>
+            </select>
+          </div>
+          
+          <div class="mb-3">
+            <label class="form-label">Password *</label>
+            <input type="password" id="officerPassword" class="form-control" placeholder="Minimum 6 characters" required>
+          </div>
+          
+          <div class="mb-3">
+            <label class="form-label">Confirm Password *</label>
+            <input type="password" id="confirmPassword" class="form-control" placeholder="Re-enter password" required>
+          </div>
+          
+          <button type="submit" class="btn btn-success w-100 py-2">Register as Officer</button>
+        </form>
+        
+        <hr>
+        <div class="text-center">
+          <span>Already registered? </span>
+          <a href="officer-login.html" class="text-decoration-none fw-bold">Login here</a>
+        </div>
+        <div class="text-center mt-2">
+          <a href="index.html" class="text-muted small">← Back to Home</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.getElementById("officerRegisterForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    const password = document.getElementById("officerPassword").value;
+    const confirm = document.getElementById("confirmPassword").value;
+    
+    if (password !== confirm) {
+      alert("❌ Passwords do not match!");
+      return;
+    }
+    
+    if (password.length < 6) {
+      alert("❌ Password must be at least 6 characters!");
+      return;
+    }
+    
+    const officerData = {
+      name: document.getElementById("officerName").value,
+      email: document.getElementById("officerEmail").value,
+      employeeId: document.getElementById("employeeId").value,
+      department: document.getElementById("department").value,
+      role: "officer"
+    };
+    
+    localStorage.setItem("currentUser", JSON.stringify(officerData));
+    localStorage.setItem("isLoggedIn", "true");
+    
+    alert("✅ Officer registration successful! Redirecting to officer dashboard...");
+    window.location.href = "officer/dashboard.html";
+  });
+</script>
+</body>
+</html>
