@@ -32,6 +32,18 @@ function Navbar() {
             Add User
           </NavLink>
 
+          <NavLink 
+            className="nav-link" 
+            to="/character-list"
+            style={({ isActive }) => ({
+              fontWeight: isActive ? 'bold' : 'normal',
+              borderBottom: isActive ? '2px solid white' : 'none'
+            })}
+          >
+            <i className="bi bi-person-plus me-1"></i>
+            Character List
+          </NavLink>
+
          
         </div>
       </div>
