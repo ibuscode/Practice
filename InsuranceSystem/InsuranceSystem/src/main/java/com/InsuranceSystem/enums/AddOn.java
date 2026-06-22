@@ -1,0 +1,11 @@
+package com.InsuranceSystem.enums;
+
+public enum AddOn {
+
+    ZERO_DEPRECIATION,
+    ROADSIDE_ASSISTANCE,
+    ENGINE_PROTECTION,
+    RETURN_TO_INVOICE,
+    NCB_PROTECTION,
+    CONSUMABLES_COVER
+}
