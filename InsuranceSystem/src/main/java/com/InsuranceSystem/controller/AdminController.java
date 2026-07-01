@@ -1,7 +1,6 @@
 package com.InsuranceSystem.controller;
 
 import com.InsuranceSystem.dto.OfficerDto;
-import com.InsuranceSystem.model.Officer;
 import com.InsuranceSystem.service.OfficerService;
 import com.InsuranceSystem.service.UserService;
 import jakarta.validation.Valid;
